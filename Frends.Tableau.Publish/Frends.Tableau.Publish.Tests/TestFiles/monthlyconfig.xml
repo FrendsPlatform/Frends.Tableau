@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tsRequest>
+	<datasource name="Monthly Sales Data"
+                useRemoteQueryAgent="False"
+                description="Testing workbook publish">
+		<connectionCredentials name="teemu.tossavainen@frends.com"
+                               password="Frends123!"
+                               embed="True" />
+		<project id="974660" />
+	</datasource>
+</tsRequest>

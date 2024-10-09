@@ -1,0 +1,28 @@
+name: Publish_build_push
+
+on:
+  push:
+    branches-ignore:    
+      - main
+    paths:
+      - 'Frends.Tableau.Publish/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: FrendsPlatform/FrendsTasks/.github/workflows/linux_build_test.yml@main
+    with:
+      workdir: Frends.Tableau.Publish
+      env_var_name_1: TableauSiteName
+      env_var_name_2: TableauPatName
+      env_var_name_3: TableauPatSecret
+      env_var_name_4: TableauUsername
+      env_var_name_5: TableauPassword
+    secrets:
+      badge_service_api_key: ${{ secrets.BADGE_SERVICE_API_KEY }}
+      test_feed_api_key: ${{ secrets.TASKS_TEST_FEED_API_KEY }}
+      env_var_value_1: ${{ secrets.TABLEAUSITENAME }}
+      env_var_value_2: ${{ secrets.TABLEAUPATNAME }}
+      env_var_value_3: ${{ secrets.TABLEAUPATSECRET }}
+      env_var_value_4: ${{ secrets.TABLEAUUSERNAME }}
+      env_var_value_5: ${{ secrets.TABLEAUPASSWORD }}
