@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿namespace Frends.Tableau.Publish.Definitions;
 
-namespace Frends.Tableau.Publish.Definitions;
+using System.Collections.Generic;
 
 /// <summary>
 /// Result class.

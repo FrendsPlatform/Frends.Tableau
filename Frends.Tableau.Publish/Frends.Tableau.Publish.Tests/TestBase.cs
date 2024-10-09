@@ -15,10 +15,10 @@ internal class TestBase
     protected static readonly string PatSecret = Environment.GetEnvironmentVariable("TableauPatSecret");
     protected static readonly string Username = Environment.GetEnvironmentVariable("TableauUsername");
     protected static readonly string Password = Environment.GetEnvironmentVariable("TableauPassword");
-    protected static readonly string WorkbookFile = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\TestFiles\Superstore.twbx"));
-    protected static readonly string FlowFile = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\TestFiles\Superstore Flow.tflx"));
-    protected static readonly string DatasourceFile = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\TestFiles\\sample.hyper"));
-    protected static readonly string XmlFileName = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @$"..\..\..\TestFiles\Publish-Testing_{Guid.NewGuid()}.xml"));
+    protected static readonly string WorkbookFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../TestFiles/Superstore.twbx");
+    protected static readonly string FlowFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../TestFiles/Superstore Flow.tflx");
+    protected static readonly string DatasourceFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../TestFiles/sample.hyper");
+    protected static readonly string XmlFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"../../../TestFiles/Publish-Testing_{Guid.NewGuid()}.xml");
 
     protected static Connection basicConnection;
     protected static Connection patConnection;
@@ -114,7 +114,8 @@ internal class TestBase
     [OneTimeTearDown]
     public void CleanUp()
     {
-        string[] files = Directory.GetFiles(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\TestFiles")), "Publish-Testing*");
+        string testFilesDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../TestFiles"));
+        string[] files = Directory.GetFiles(testFilesDirectory, "Publish-Testing*");
 
         foreach (string file in files)
             File.Delete(file);
