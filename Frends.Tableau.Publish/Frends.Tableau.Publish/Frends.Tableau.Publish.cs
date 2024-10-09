@@ -25,14 +25,14 @@ public static class Tableau
     private static string siteId = string.Empty;
 
     /// <summary>
-    /// This is Task.
+    /// Frends Task for Tableau publish operations.
     /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.Tableau.Publish).
     /// </summary>
     /// <param name="connection">Connection parameters.</param>
     /// <param name="input">Input parameters.</param>
     /// <param name="options">Options parameters.</param>
     /// <param name="cancellationToken">Cancellation token given by Frends.</param>
-    /// <returns>Object { string Output }.</returns>
+    /// <returns>Object { FileUploadResult[] Data }.</returns>
     public static Result Publish([PropertyTab] Connection connection, [PropertyTab] Input input, [PropertyTab] Options options, CancellationToken cancellationToken)
     {
         baseUrl = @$"{connection.BaseUrl}".TrimEnd('/');

@@ -12,9 +12,9 @@ internal class PatTest : TestBase
     public void Test_Publish_PatAuthentication()
     {
         var result = Tableau.Publish(patConnection, input, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -23,9 +23,9 @@ internal class PatTest : TestBase
         var con = patConnection;
         con.SiteName = null;
         var result = Tableau.Publish(con, input, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -42,9 +42,9 @@ internal class PatTest : TestBase
         var newInput = input;
         newInput.ProjectDescription = null;
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -78,9 +78,9 @@ internal class PatTest : TestBase
         newInput.ResourceType = ResourceTypes.DataSources;
         newInput.Files = new string[] { DatasourceFile };
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -89,9 +89,9 @@ internal class PatTest : TestBase
         var newInput = input;
         newInput.AsJob = false;
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -100,9 +100,9 @@ internal class PatTest : TestBase
         var newInput = input;
         newInput.FileType = null;
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -111,9 +111,9 @@ internal class PatTest : TestBase
         var newInput = input;
         newInput.Overwrite = false;
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -124,9 +124,9 @@ internal class PatTest : TestBase
         newInput.Files = new string[] { FlowFile };
         newInput.FileType = "tflx";
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -138,9 +138,9 @@ internal class PatTest : TestBase
         newInput.Files = new string[] { FlowFile };
         newInput.FileType = "tflx";
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("fileSize=\"1\""));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("fileSize=\"1\""));
     }
 
     [Test]
@@ -153,9 +153,9 @@ internal class PatTest : TestBase
         newInput.Overwrite = false; // Both append and Overwrite cannot be true
 
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -169,9 +169,9 @@ internal class PatTest : TestBase
         newInput.Append = false; // Both append and Overwrite cannot be true
 
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -180,9 +180,9 @@ internal class PatTest : TestBase
         var newInput = input;
         newInput.SingleRequest = false;
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]
@@ -192,9 +192,9 @@ internal class PatTest : TestBase
         newInput.SingleRequest = false;
         newInput.Files = new string[] { WorkbookFile, WorkbookFile };
         var result = Tableau.Publish(patConnection, newInput, options, default);
-        Assert.IsTrue(result.FileUploadResults[0].Success);
-        Assert.IsTrue(result.FileUploadResults[0].StatusCode < 400);
-        Assert.IsTrue(result.FileUploadResults[0].Message.Contains("createdAt"));
+        Assert.IsTrue(result.Data[0].Success);
+        Assert.IsTrue(result.Data[0].StatusCode < 400);
+        Assert.IsTrue(result.Data[0].Message.Contains("createdAt"));
     }
 
     [Test]

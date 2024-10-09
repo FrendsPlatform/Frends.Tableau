@@ -7,16 +7,18 @@ public class Result
 {
     internal Result(FileUploadResult[] fileUploadResults)
     {
-        FileUploadResults = fileUploadResults;
+        Data = fileUploadResults;
     }
 
     /// <summary>
     /// List of file upload results.
     /// </summary>
     /// <example>
-    /// { {"File", true, "Message", 202, null}, {"File2", true, "Message", 202, null} }
-    /// { {"File", true, "Message", 202, null}, {"File2", true, "Message", 202, "321"} }
-    /// { {"File", true, "Message", 202, "123"}, {"File2", true, "Message", 202, "321"} }
+    /// [
+    ///   { "File": "c:\\temp\\file1.tflx", "Success": true, "Message": "Message", "StatusCode": 202, "JobId": null },
+    ///   { "File": "c:\\temp\\file2.tflx", "Success": true, "Message": "Message", "StatusCode": 202, "JobId": "321" },
+    ///   { "File": "c:\\temp\\file3.tflx", "Success": true, "Message": "Message", "StatusCode": 202, "JobId": "123" }
+    /// ]
     /// </example>
-    public FileUploadResult[] FileUploadResults { get; private set; }
+    public FileUploadResult[] Data { get; private set; }
 }

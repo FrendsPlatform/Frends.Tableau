@@ -1,9 +1,9 @@
 # Frends.Tableau.Publish
-Description what the Task will do.
+Frends Task for Tableau publish operations.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Build](https://github.com/FrendsPlatform/Frends.Echo/actions/workflows/Publish_build_and_test_on_main.yml/badge.svg)](https://github.com/FrendsPlatform/Frends.Echo/actions)
-![Coverage](https://app-github-custom-badges.azurewebsites.net/Badge?key=FrendsPlatform/Frends.Echo/Frends.Tableau.Publish|main)
+[![Build](https://github.com/FrendsPlatform/Frends.Tableau/actions/workflows/Publish_build_and_test_on_main.yml/badge.svg)](https://github.com/FrendsPlatform/Frends.Tableau/actions)
+![Coverage](https://app-github-custom-badges.azurewebsites.net/Badge?key=FrendsPlatform/Frends.Tableau/Frends.Tableau.Publish|main)
 
 ## Installing
 
@@ -13,7 +13,7 @@ You can install the Task via frends UI Task View.
 
 ### Clone a copy of the repository
 
-`git clone https://github.com/FrendsPlatform/Frends.Echo.git`
+`git clone https://github.com/FrendsPlatform/Frends.Tableau.git`
 
 ### Build the project
 
