@@ -1,11 +1,13 @@
-﻿namespace Frends.Tableau.Publish.Definitions;
+﻿using System.Collections.Generic;
+
+namespace Frends.Tableau.Publish.Definitions;
 
 /// <summary>
 /// Result class.
 /// </summary>
 public class Result
 {
-    internal Result(FileUploadResult[] fileUploadResults)
+    internal Result(List<FileUploadResult> fileUploadResults)
     {
         Data = fileUploadResults;
     }
@@ -20,5 +22,5 @@ public class Result
     ///   { "File": "c:\\temp\\file3.tflx", "Success": true, "Message": "Message", "StatusCode": 202, "JobId": "123" }
     /// ]
     /// </example>
-    public FileUploadResult[] Data { get; private set; }
+    public List<FileUploadResult> Data { get; private set; }
 }

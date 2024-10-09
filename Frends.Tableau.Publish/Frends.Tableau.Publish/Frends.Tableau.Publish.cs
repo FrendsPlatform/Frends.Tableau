@@ -32,7 +32,7 @@ public static class Tableau
     /// <param name="input">Input parameters.</param>
     /// <param name="options">Options parameters.</param>
     /// <param name="cancellationToken">Cancellation token given by Frends.</param>
-    /// <returns>Object { FileUploadResult[] Data }.</returns>
+    /// <returns>Object { List&lt;FileUploadResult&gt; }</returns>
     public static Result Publish([PropertyTab] Connection connection, [PropertyTab] Input input, [PropertyTab] Options options, CancellationToken cancellationToken)
     {
         baseUrl = @$"{connection.BaseUrl}".TrimEnd('/');
@@ -43,9 +43,9 @@ public static class Tableau
             projectId = GetOrCreateProject(httpClient, input, options, cancellationToken);
 
         if (input.SingleRequest)
-            return new Result([.. PublishWorkbook(httpClient, input, projectId, cancellationToken)]);
+            return new Result(PublishWorkbook(httpClient, input, projectId, cancellationToken));
         else
-            return new Result([.. PublishMultipartsWorkbook(httpClient, input, projectId)]);
+            return new Result(PublishMultipartsWorkbook(httpClient, input, projectId));
     }
 
     private static HttpClient GetHttpClient(Connection connection, CancellationToken cancellationToken)
